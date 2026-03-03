@@ -60,7 +60,7 @@ En la parte superior derecha de Swagger, haz clic en el botón verde **Authorize
 
 ### 4. Gestión de Productos (CRUD)
 Con el candado cerrado, ahora tienes acceso a las rutas protegidas:
-* **`POST /producto`**: Crea nuevos servicios (ej. "Terapia individual", "Evaluación psicométrica").
-* **`PUT /producto/{id}`**: Modifica el nombre o precio de un servicio existente.
-* **`DELETE /producto/{id}`**: Elimina un servicio del catálogo.
+* **`POST /producto`**: Crea nuevos productos (ej. "Frituras" "Refresco").
+* **`PUT /producto/{id}`**: Modifica el nombre o precio de un producto existente.
+* **`DELETE /producto/{id}`**: Elimina un producto del catálogo.
 * *Nota: Las rutas `GET` para consultar la lista de productos son de acceso público.*
