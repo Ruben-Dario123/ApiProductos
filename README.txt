@@ -23,7 +23,7 @@ Para ejecutar este proyecto en tu entorno local, solo necesitas tener instalado:
 
 ---
 
-## 🚀 Instalación y Ejecución Local
+## Instalación y Ejecución Local
 
 Sigue estos pasos para levantar el servidor en tu computadora:
 
@@ -45,7 +45,7 @@ Sigue estos pasos para levantar el servidor en tu computadora:
 
 ---
 
-## 📖 Guía de Uso (Flujo de Trabajo)
+## Guía de Uso (Flujo de Trabajo)
 
 La API está protegida, por lo que debes seguir este flujo desde la interfaz de Swagger (`http://localhost:8080`) para poder interactuar con los datos:
 
@@ -64,3 +64,4 @@ Con el candado cerrado, ahora tienes acceso a las rutas protegidas:
 * **`PUT /producto/{id}`**: Modifica el nombre o precio de un servicio existente.
 * **`DELETE /producto/{id}`**: Elimina un servicio del catálogo.
 * *Nota: Las rutas `GET` para consultar la lista de productos son de acceso público.*
+
