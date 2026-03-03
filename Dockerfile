@@ -21,4 +21,4 @@ RUN mix deps.get
 EXPOSE 4000
 
 # El comando final que arranca tu API
-CMD ["mix", "phx.server"]
+CMD ["sh", "-c", "mix ecto.migrate && mix phx.server"]
