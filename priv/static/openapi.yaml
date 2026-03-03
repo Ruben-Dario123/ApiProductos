@@ -1,0 +1,145 @@
+openapi: 3.0.0
+info:
+  title: API de Gestión Clínica
+  version: 1.0.0
+servers:
+  - url: http://localhost:4000
+    description: Mi servidor local Phoenix
+
+security:
+  - bearerAuth: []
+
+paths:
+  /auth/register:
+    post:
+      summary: Registrar un nuevo psicólogo/usuario
+      security: [] 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: ""
+                password:
+                  type: string
+                  example: ""
+      responses:
+        '201':
+          description: Usuario creado exitosamente
+        '422':
+          description: El nombre de usuario ya existe
+
+  /auth/login:
+    post:
+      summary: Iniciar sesión
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: ""
+                password:
+                  type: string
+                  example: ""
+      responses:
+        '200':
+          description: Login exitoso
+        '401':
+          description: Credenciales incorrectas
+
+  /producto:
+    get:
+      summary: Lista todos los productos
+      security: []
+      responses:
+        '200':
+          description: Lista obtenida
+    post:
+      summary: Crear un nuevo servicio o producto
+      requestBody: # <-- ESTO ERA LO QUE FALTABA
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                  example: ""
+                precio:
+                  type: number
+                  example: 0
+      responses:
+        '201':
+          description: Creado con éxito
+        '401':
+          description: No autorizado
+        '422':
+          description: Faltan datos
+
+  /producto/{id}:
+    get:
+      summary: Ver un producto por ID
+      security: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Encontrado
+    put:
+      summary: Actualizar un producto
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody: # <-- Y FALTABA AQUÍ TAMBIÉN
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                  example: ""
+                precio:
+                  type: number
+                  example: 0
+      responses:
+        '200':
+          description: Actualizado
+        '401':
+          description: No autorizado
+    delete:
+      summary: Eliminar un producto
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Eliminado
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
