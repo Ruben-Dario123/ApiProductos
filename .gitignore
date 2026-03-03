@@ -25,12 +25,11 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 hola_api-*.tar
 
-# Ignore sqlite databases
-/*.db
-/*.sqlite3
-/*.sqlite3-*
-/priv/repo/*.sqlite3
-/priv/repo/*.sqlite3-*
+# /*.db
+# /*.sqlite3
+# /priv/repo/*.sqlite3
+# /priv/repo/*.sqlite3-shm
+# /priv/repo/*.sqlite3-wal
 
 # Ignore dependencies and build artifacts
 /deps
