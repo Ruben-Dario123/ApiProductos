@@ -3,6 +3,18 @@ defmodule HolaApiWeb.Endpoint do
   # Es el punto de entrada para todas las peticiones HTTP
   use Phoenix.Endpoint, otp_app: :hola_api
 
+  plug Plug.Static,
+    at: "/",
+    from: :hola_api,
+    gzip: false,
+    only: HolaApiWeb.static_paths()
+
+
+  # Asigna un identificador único a cada petición
+  # Útil para depuración y trazabilidad en logs
+  plug Plug.RequestId
+
+  # ... (el resto de tu archivo sigue igual hacia abajo) ...
   # Asigna un identificador único a cada petición
   # Útil para depuración y trazabilidad en logs
   plug Plug.RequestId
