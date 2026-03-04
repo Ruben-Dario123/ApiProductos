@@ -14,5 +14,6 @@ defmodule HolaApi.Producto do
     producto
     |> cast(attrs, [:nombre, :precio])
     |> validate_required([:nombre, :precio])
+    |> validate_number(:precio, greater_than_or_equal_to: 0.0, message: "El precio no puede ser negativo")
   end
 end
